@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+  runtimeConfig: {
+    apiSecret: '', // 可以由 NUXT_API_SECRET 环境变量覆盖
+    public: {
+      apiBase: '', // 可以由 NUXT_PUBLIC_API_BASE 环境变量覆盖
+    },
+  },
   app: {
     head: {
       charset: 'utf-8',
@@ -37,6 +43,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@ant-design-vue/nuxt',
     'nuxt-icon',
+    '@nuxt/content',
   ],
   antd: {
     // Options

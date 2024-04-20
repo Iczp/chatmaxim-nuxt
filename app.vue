@@ -1,9 +1,11 @@
 <template>
-  <AppHeader>
-    <NavBars></NavBars>
-  </AppHeader>
-  <NuxtPage />
-  <AppFooter>AppFooter</AppFooter>
+  <main>
+    <AppHeader>
+      <NavBars></NavBars>
+    </AppHeader>
+    <NuxtPage />
+    <AppFooter>AppFooter</AppFooter>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -11,7 +13,6 @@
 // console.log(appConfig.theme);
 </script>
 
-
 <style>
-@import url("~/assets/css/app.css");
+@import url('~/assets/css/app.css');
 </style>

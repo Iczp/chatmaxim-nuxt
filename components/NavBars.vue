@@ -13,7 +13,7 @@
       </li>
       <li>
         <h3>
-          <a href="/product" @click="onClick">Product({{ counter }})</a>
+          <a href="/product" >Product({{ counter }})</a>
         </h3>
         <ul>
           <li><a href="Profile">Product-subItem1</a></li>
@@ -22,7 +22,7 @@
       </li>
     </ul>
     <ul>
-      <li><a href="Profile">Profile</a></li>
+      <li><a href="Profile" @click="onClick">Profile({{ counter }})</a></li>
       <li><a href="/login">Login</a></li>
     </ul>
   </nav>
