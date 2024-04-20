@@ -10,3 +10,8 @@
 // const appConfig = useAppConfig();
 // console.log(appConfig.theme);
 </script>
+
+
+<style>
+@import url("~/assets/css/app.css");
+</style>

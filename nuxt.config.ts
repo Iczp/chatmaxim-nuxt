@@ -31,11 +31,12 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    // '@pinia/nuxt',
     '@nuxtjs/i18n',
-    '@vueuse/nuxt',
-    'nuxt-icon',
     '@nuxtjs/robots',
+    '@vueuse/nuxt',
     '@ant-design-vue/nuxt',
+    'nuxt-icon',
   ],
   antd: {
     // Options
