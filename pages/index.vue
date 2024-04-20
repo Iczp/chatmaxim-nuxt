@@ -1,17 +1,8 @@
 <template>
-  <NavBars></NavBars>
+  
   <AppHeader>AppHeader</AppHeader>
   <NuxtLink to="about">About</NuxtLink>
-  <NuxtLink to="/">Home</NuxtLink>
-  <div>
-    <h1>Welcome to the homepage</h1>
-    <h2>
-      <Icon name="uil:github" color="black" />
-      appConfig.theme
-    </h2>
-    <!-- <AppAlert> This is an auto-imported component. </AppAlert> -->
-  </div>
-  <AppFooter>AppFooter</AppFooter>
+
   <section>
     <p>index</p>
   </section>

@@ -34,10 +34,14 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@vueuse/nuxt',
     'nuxt-icon',
+    '@nuxtjs/robots',
     '@ant-design-vue/nuxt',
   ],
   antd: {
     // Options
+  },
+  robots: {
+    /* module options */
   },
   routeRules: {
     // Homepage pre-rendered at build time
