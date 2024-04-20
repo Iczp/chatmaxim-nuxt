@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <h1>Welcome to the homepage</h1>
-    <h2>appConfig.theme :{{ appConfig.theme }}</h2>
-    <!-- <AppAlert> This is an auto-imported component. </AppAlert> -->
-
-    <NuxtWelcome />
-  </div>
+  <NuxtPage />
 </template>
 
-
 <script setup lang="ts">
-const appConfig = useAppConfig()
+import AppFooter from './components/AppFooter.vue';
+import AppHeader from './components/AppHeader.vue';
 
-console.log(appConfig.theme)
+const appConfig = useAppConfig();
+
+console.log(appConfig.theme);
 </script>
-
