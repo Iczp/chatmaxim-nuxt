@@ -6,9 +6,7 @@
   </main>
 </template>
 <style lang="scss">
-
-.content{
-
-
+.content {
+  color: aqua;
 }
 </style>
