@@ -35,9 +35,22 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      // theme: 'github-light',
+      // OR
+      theme: {
+        // Default theme (same as single string)
+        default: 'github-light',
+        // Theme used if `html.dark`
+        dark: 'github-dark',
+        // Theme used if `html.sepia`
+        sepia: 'monokai'
+      }
+    }
+  },
   modules: [
-    // '@pinia/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/robots',
     '@vueuse/nuxt',

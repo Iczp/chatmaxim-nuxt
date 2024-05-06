@@ -6,7 +6,26 @@
   <nav>
     <ul class="nav-tabs">
       <li><a href="/">Home</a></li>
-      <li><a href="/docs">Docs</a></li>
+      <li>
+        <h3>
+          <a href="/docs">Docs</a>
+        </h3>
+        <ul>
+          <!-- <ContentList path="/docs">
+            <template #default="{ list }">
+              <li v-for="item in list" :key="item._path">
+                <h2>
+                  <a :href="item._path">{{ item.title }}</a>
+                </h2>
+                <p>{{ item.description }}</p>
+              </li>
+            </template>
+            <template #not-found>
+              <p>No items found.</p>
+            </template>
+          </ContentList> -->
+        </ul>
+      </li>
       <li>
         <a href="/about?id=123" :class="{ active: true }"
           >About{{ route.query }}</a
