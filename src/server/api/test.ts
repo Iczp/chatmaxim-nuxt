@@ -1,6 +1,6 @@
 // export default () => ' Hello World :)'
 
-import requester from '~/services/request';
+import requester from '@/services/request';
 
 // export default () => {
 //   const id = 0;
@@ -20,10 +20,10 @@ export default defineEventHandler(async (event) => {
       method: 'GET',
     })
     .then((res) => {
-      console.log('res', res);
+      // console.log('res', res);
     })
     .catch((err) => {
-      console.log('err', err);
+      // console.log('err', err);
     });
   // ... 在这里做任何你想做的事情
   count++;

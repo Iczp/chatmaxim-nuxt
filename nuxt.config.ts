@@ -1,16 +1,27 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+  srcDir: 'src/',
   runtimeConfig: {
     apiSecret: '', // 可以由 NUXT_API_SECRET 环境变量覆盖
     public: {
       apiBase: '', // 可以由 NUXT_PUBLIC_API_BASE 环境变量覆盖
     },
+    baseUrl: 'http://10.0.5.20',
   },
   app: {
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+    },
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/css/app.scss";',
+        },
+      },
     },
   },
   imports: {
@@ -46,14 +57,15 @@ export default defineNuxtConfig({
         // Theme used if `html.dark`
         dark: 'github-dark',
         // Theme used if `html.sepia`
-        sepia: 'monokai'
-      }
-    }
+        sepia: 'monokai',
+      },
+    },
   },
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/robots',
     '@vueuse/nuxt',
+    '@pinia/nuxt',
     '@ant-design-vue/nuxt',
     'nuxt-icon',
     '@nuxt/content',

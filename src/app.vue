@@ -1,10 +1,8 @@
 <template>
   <main>
-    <AppHeader>
-      <NavBars></NavBars>
-    </AppHeader>
-    <NuxtPage />
-    <AppFooter>AppFooter</AppFooter>
+    <NuxtLayout name="default">
+      <NuxtPage />
+    </NuxtLayout>
   </main>
 </template>
 
@@ -13,6 +11,6 @@
 // console.log(appConfig.theme);
 </script>
 
-<style>
-@import url('~/assets/css/app.css');
+<style lang="scss">
+/* @import url('~/assets/css/app.css'); */
 </style>

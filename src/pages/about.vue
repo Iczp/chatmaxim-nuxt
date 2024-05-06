@@ -2,10 +2,13 @@
 const { data } = await useFetch('/api/test');
 console.log('/api/test', data);
 
-const env = process.env.NUXT_API_BASE || 'env';
+const env = ref(process.env.NUXT_API_BASE);
+const config = useRuntimeConfig();
 </script>
 <template>
   <section>
+    <!-- env:{{ env }} -->
+    <!-- config:{{ config }} -->
     <p>About{{ data }}</p>
 
     <h3>33</h3>
