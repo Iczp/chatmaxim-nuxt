@@ -1,12 +1,12 @@
 <template>
-  <main>
-    <NuxtLayout name="default">
-      <NuxtPage />
-    </NuxtLayout>
-  </main>
+  <NuxtLayout name="default">
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
+import 'ant-design-vue/dist/reset.css';
+// import 'ant-design-vue/pro-layout/dist/style.css';
 // const appConfig = useAppConfig();
 // console.log(appConfig.theme);
 </script>

@@ -70,6 +70,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@nuxt/content',
   ],
+  plugins: [],
   antd: {
     // Options
   },

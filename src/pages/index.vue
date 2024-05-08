@@ -1,5 +1,41 @@
+<script setup lang="ts">
+// import { useHead } from '#app';
+
+// const appConfig = useAppConfig();
+
+// console.log(appConfig.theme);
+
+const handleMessage = () => {
+  message.info("This is a normal message");
+}
+const appStore = useAppStore();
+useHead({
+  title: 'ChatMaxim',
+
+  meta: [
+    { name: 'description', content: 'My amazing site.' },
+    { name: 'keywords', content: 'iczp.net' },
+  ],
+  bodyAttrs: {
+    class: 'test',
+  },
+  script: [{ innerHTML: "console.log('Hello world')" }],
+});
+
+const { data } = useFetch(
+  'http://10.0.5.20:8044/api/abp/application-configuration',
+  {
+    method: 'get',
+  }
+);
+</script>
+
 <template>
   <main>
+
+    <a-button @click="handleMessage">
+    button
+  </a-button>
     appStore: {{ appStore.name }}
     <AppHeader>AppHeader</AppHeader>
     <NuxtLink to="about">About</NuxtLink>
@@ -36,30 +72,4 @@
     </section>
   </main>
 </template>
-<script setup lang="ts">
-// import { useHead } from '#app';
 
-// const appConfig = useAppConfig();
-
-// console.log(appConfig.theme);
-const appStore = useAppStore();
-useHead({
-  title: 'ChatMaxim',
-
-  meta: [
-    { name: 'description', content: 'My amazing site.' },
-    { name: 'keywords', content: 'iczp.net' },
-  ],
-  bodyAttrs: {
-    class: 'test',
-  },
-  script: [{ innerHTML: "console.log('Hello world')" }],
-});
-
-const { data } = useFetch(
-  'http://10.0.5.20:8044/api/abp/application-configuration',
-  {
-    method: 'get',
-  }
-);
-</script>
