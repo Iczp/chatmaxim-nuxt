@@ -1,6 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import { generateCss } from './src/hooks/antd';
+
 export default defineNuxtConfig({
   ssr: true,
+  hooks: {
+    'build:done': async () => {
+      // const { default: generateCss } = await import('./src/hooks/antd');
+      await generateCss();
+    },
+  },
+  css: [
+    // '@/assets/css/antd.min.css'
+    'ant-design-vue/dist/reset.css',
+  ],
   srcDir: 'src/',
   runtimeConfig: {
     apiSecret: '', // 可以由 NUXT_API_SECRET 环境变量覆盖
@@ -13,6 +26,16 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      link: [
+        {
+          rel: 'stylesheet',
+          href: '/css/antd.css', // 引用生成的静态样式文件
+        },
+        {
+          rel: 'stylesheet',
+          href: '/css/style.css', // 引用生成的静态样式文件
+        },
+      ],
     },
   },
   vite: {
@@ -70,7 +93,9 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@nuxt/content',
   ],
-  plugins: [],
+  plugins: [
+    // { src: '@/plugins/antdv', mode: 'client' }, // 引入插件
+  ],
   antd: {
     // Options
   },
@@ -80,19 +105,19 @@ export default defineNuxtConfig({
   routeRules: {
     // Homepage pre-rendered at build time
     '/': { prerender: true },
-    // Products page generated on demand, revalidates in background, cached until API response changes
-    '/products': { swr: true },
-    // Product page generated on demand, revalidates in background, cached for 1 hour (3600 seconds)
-    '/products/**': { swr: 3600 },
-    // Blog posts page generated on demand, revalidates in background, cached on CDN for 1 hour (3600 seconds)
-    '/blog': { isr: 3600 },
-    // Blog post page generated on demand once until next deployment, cached on CDN
-    '/blog/**': { isr: true },
-    // Admin dashboard renders only on client-side
-    '/admin/**': { ssr: false },
-    // Add cors headers on API routes
-    '/api/**': { cors: true },
-    // Redirects legacy urls
-    '/old-page': { redirect: '/new-page' },
+    // // Products page generated on demand, revalidates in background, cached until API response changes
+    // '/products': { swr: true },
+    // // Product page generated on demand, revalidates in background, cached for 1 hour (3600 seconds)
+    // '/products/**': { swr: 3600 },
+    // // Blog posts page generated on demand, revalidates in background, cached on CDN for 1 hour (3600 seconds)
+    // '/blog': { isr: 3600 },
+    // // Blog post page generated on demand once until next deployment, cached on CDN
+    // '/blog/**': { isr: true },
+    // // Admin dashboard renders only on client-side
+    // '/admin/**': { ssr: false },
+    // // Add cors headers on API routes
+    // '/api/**': { cors: true },
+    // // Redirects legacy urls
+    // '/old-page': { redirect: '/new-page' },
   },
 });
