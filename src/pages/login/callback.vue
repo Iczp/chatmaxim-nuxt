@@ -9,26 +9,9 @@ const clientId = 'IM_Nuxt';
 const authHost = 'http://10.0.5.20:8043';
 const callbackUri = 'http://localhost:3000/login/callback';
 
-const toQueryString = (obj) => {
-  var str = [];
-  for (var p in obj)
-    if (obj[p]) {
-      let value = obj[p];
-      if (typeof value == 'object') {
-        // value = value.toString();
-      }
-      str.push(
-        encodeURIComponent(p) +
-          '=' +
-          (value ? encodeURIComponent(value.toString()) : '')
-      );
-    }
-  return str.join('&');
-};
-
-const { data, error, pending } = await useFetch(`${authHost}/connect/token`, {
+const { data, error, pending } = await useFetch(`/connect/token`, {
   method: 'POST',
-  server: true,
+  server: false,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
   },
@@ -39,6 +22,16 @@ const { data, error, pending } = await useFetch(`${authHost}/connect/token`, {
     redirect_uri: callbackUri,
     grant_type: 'authorization_code',
   }),
+});
+onMounted(() => {
+  // navigateTo(`/login?from=callback`);
+  console.log('关闭窗口');
+  // 在弹出窗口中
+  window.opener.postMessage(
+    { status: 'loginSuccess', userId: '12345' },
+    'http://localhost:3000'
+  );
+  // window.close();
 });
 </script>
 

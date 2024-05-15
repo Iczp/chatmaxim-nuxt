@@ -19,6 +19,17 @@ const onFinish = (values: any) => {
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
+
+const openLoginPopup = (url: string) => {
+  const width = 600,
+    height = 700;
+  const left = screen.width / 2 - width / 2;
+  const top = screen.height / 2 - height / 2;
+  // const url = 'YOUR_AUTHORIZATION_URL'; // 替换为你的授权服务器 URL
+  const windowFeatures = `toolbar=no, menubar=no,titlebar=no, dialog=yes, width=${width}, height=${height}, top=${top}, left=${left}`;
+  window.open(url, 'Login', windowFeatures);
+};
+
 const login = () => {
   console.log('login');
   const clientId = 'IM_Nuxt';
@@ -28,12 +39,27 @@ const login = () => {
   const redirectUri = encodeURIComponent(callbackUri);
   const responseType = 'code';
   const scope = encodeURIComponent('openid profile email');
- 
+
   const authUrl = `${authHost}/connect/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
-  window.location.href = authUrl;
+  // window.location.href = authUrl;
+  openLoginPopup(authUrl);
 
   //   https://localhost:44344/swagger/oauth2-redirect.html?code=WuYXfuTm6VdlLKgYLE4lc-6aFUHMt9GlF_6eagd3dtk&iss=http%3A%2F%2F10.0.5.20%3A8043%2F
 };
+onMounted(() => {
+  window.addEventListener('message', (event) => {
+    console.log('登录成功 message', event, event.data);
+    if (event.data === 'loginSuccess') {
+      // 处理登录成功
+      console.info('登录成功');
+    }
+  });
+
+  setTimeout(() => {
+    window.postMessage('loginSuccess');
+  }, 1000);
+  console.log('onMounted');
+});
 </script>
 
 <template>

@@ -120,4 +120,35 @@ export default defineNuxtConfig({
     // // Redirects legacy urls
     // '/old-page': { redirect: '/new-page' },
   },
+  //   反向代理
+  nitro: {
+    // prerender: {
+    //   routes: ['/'],
+
+    // },
+
+    // // 用于客户端代理
+    // devProxy: {
+    //   '/connect': {
+    //     target: 'http://10.0.5.20:8043/connect', // 这里是接口地址
+    //     changeOrigin: true,
+    //     prependPath: true,
+    //   },
+    // },
+    // // 该配置对服务端和客户端都生效，配置了routeRules后，就不需要配置devProxy了
+    routeRules: {
+      '/connect/**': {
+        proxy: 'http://10.0.5.20:8043/connect/**',
+      },
+      '/api/chat/**': {
+        proxy: 'http://10.0.5.20:8044/api/chat/**',
+      },
+      '/api/im/**': {
+        proxy: 'http://10.0.5.20:8044/api/im/**',
+      },
+      '/api/app/**': {
+        proxy: 'http://10.0.5.20:8044/api/app/**',
+      },
+    },
+  },
 });

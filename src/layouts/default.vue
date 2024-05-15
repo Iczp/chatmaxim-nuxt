@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-const selectedKeys = ref<string[]>(['2']);
+const { menus, selectedKeys } = useNavs();
 </script>
-
 
 <template>
   <!-- <main layout="default">
@@ -23,9 +22,9 @@ const selectedKeys = ref<string[]>(['2']);
         mode="horizontal"
         :style="{ lineHeight: '64px' }"
       >
-        <a-menu-item key="1">nav 1</a-menu-item>
-        <a-menu-item key="2">nav 2</a-menu-item>
-        <a-menu-item key="3">nav 3</a-menu-item>
+        <a-menu-item v-for="(item, index) in menus" :key="item.url"
+          ><NuxtLink :to="item.url">{{ item.title }}</NuxtLink></a-menu-item
+        >
       </a-menu>
     </a-layout-header>
     <a-layout-content style="padding: 0 50px">
@@ -33,6 +32,8 @@ const selectedKeys = ref<string[]>(['2']);
         <a-breadcrumb-item>Home</a-breadcrumb-item>
         <a-breadcrumb-item>List</a-breadcrumb-item>
         <a-breadcrumb-item>App</a-breadcrumb-item>
+
+        <a-breadcrumb-item>{{ $route.path }}</a-breadcrumb-item>
       </a-breadcrumb>
       <NavBars></NavBars>
       <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
