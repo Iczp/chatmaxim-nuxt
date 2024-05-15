@@ -2,28 +2,7 @@
 import { ref } from 'vue';
 const selectedKeys = ref<string[]>(['2']);
 </script>
-<style scoped>
-.site-layout-content {
-  min-height: 280px;
-  padding: 24px;
-  background: #fff;
-}
-#components-layout-demo-top .logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
-}
-.ant-row-rtl #components-layout-demo-top .logo {
-  float: right;
-  margin: 16px 0 16px 24px;
-}
 
-[data-theme='dark'] .site-layout-content {
-  background: #141414;
-}
-</style>
 
 <template>
   <!-- <main layout="default">
@@ -37,7 +16,7 @@ const selectedKeys = ref<string[]>(['2']);
   <a-layout class="layout">
     <a-layout-header>
       <div class="logo" />
-     
+
       <a-menu
         v-model:selectedKeys="selectedKeys"
         theme="dark"
@@ -61,7 +40,33 @@ const selectedKeys = ref<string[]>(['2']);
       </div>
     </a-layout-content>
     <a-layout-footer style="text-align: center">
-      Ant Design ©2018 Created by Ant UED
+      <a href="https://www.tasao.com" target="_blank">Tasao.com</a> ©2014-{{
+        new Date().getFullYear()
+      }}
+      Created by <a href="https://www.iczp.net" target="_blank">IczpNet</a>
     </a-layout-footer>
   </a-layout>
 </template>
+
+<style scoped>
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+#components-layout-demo-top .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+[data-theme='dark'] .site-layout-content {
+  background: #141414;
+}
+</style>

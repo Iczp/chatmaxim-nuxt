@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       link: [
         {
           rel: 'stylesheet',
-          href: '/css/antd.css', // 引用生成的静态样式文件
+          href: '/css/antd.min.css', // 引用生成的静态样式文件
         },
         {
           rel: 'stylesheet',
