@@ -6,28 +6,37 @@ export const useNavs = () => {
     {
       key: 'index',
       url: '/',
-      title: '首页',
+      title: 'Home',
     },
     {
       key: 'docs',
-      url: '/docs',
-      title: '文档',
+      url: '/notes',
+      title: 'Notes',
     },
     {
       key: 'product',
       url: '/product',
-      title: '产品',
+      title: 'Product',
     },
     {
       key: 'about',
       url: '/about',
-      title: '关于',
+      title: 'About',
     },
-
+    {
+      key: 'profile',
+      url: '/profile',
+      title: 'Profile',
+    },
+    {
+      key: 'admin',
+      url: '/admin',
+      title: 'Admin',
+    },
     {
       key: 'login',
       url: '/login',
-      title: '登录',
+      title: 'Sign in',
     },
   ]);
 

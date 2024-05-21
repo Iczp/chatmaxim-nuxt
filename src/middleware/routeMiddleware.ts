@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  console.log('middleware', to, from);
+  console.log('routeMiddleware', to, from);
 
   if (to.params.id === '1') {
     return abortNavigation();
@@ -10,4 +10,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (to.path !== '/') {
     return navigateTo('/');
   }
+
+  // 完全在客户端跳过中间件
+  if (process.client) return
 });

@@ -1,8 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import { generateCss } from './src/hooks/antd';
-
+import { resolve } from 'node:path';
 export default defineNuxtConfig({
+  router: {
+    options: {
+      // hashMode: true,
+    },
+  },
   ssr: true,
   hooks: {
     'build:done': async () => {
@@ -70,6 +75,18 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
   content: {
+    // api: {
+    //   baseURL: '/api/_content',
+    // },
+    // documentDriven: true,
+    sources: {
+      content: {
+        driver: 'fs',
+        prefix: '/notes', // All contents inside this source will be prefixed with `/notes`
+        base: resolve(__dirname, 'content'),
+      },
+    },
+    // contentHead: true,
     highlight: {
       // Theme used in all color schemes.
       // theme: 'github-light',
@@ -90,7 +107,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@ant-design-vue/nuxt',
-    'nuxt-icon',
+    // 'nuxt-icon',
     '@nuxt/content',
   ],
   plugins: [
@@ -114,7 +131,7 @@ export default defineNuxtConfig({
     // // Blog post page generated on demand once until next deployment, cached on CDN
     // '/blog/**': { isr: true },
     // // Admin dashboard renders only on client-side
-    // '/admin/**': { ssr: false },
+    '/admin/**': { ssr: false },
     // // Add cors headers on API routes
     // '/api/**': { cors: true },
     // // Redirects legacy urls
