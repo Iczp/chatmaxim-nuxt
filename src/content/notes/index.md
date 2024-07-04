@@ -1,11 +1,11 @@
 ---
-title: Content首页
+title: Note Index
 
 
 ---
 
 
-# Hello Content
+# Note Index
 ## conent/index.md
 
 

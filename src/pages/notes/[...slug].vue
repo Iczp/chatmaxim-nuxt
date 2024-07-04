@@ -21,7 +21,7 @@ const query = queryContent();
     <ContentNavigation v-slot="{ navigation }">
       <ul>
         <li v-for="link of navigation" :key="link._path">
-          <NuxtLink :to="`/notes${link._path}`">
+          <NuxtLink :to="`${link._path}`">
             {{ link.title }}
             <a-badge :count="link.children?.length || 0"></a-badge>
           </NuxtLink>
@@ -34,7 +34,7 @@ const query = queryContent();
       <ContentList path="/" v-slot="{ list }">
         <li v-for="article in list" :key="article._path">
           <h3>
-            <NuxtLink :to="`/notes${article._path}`">
+            <NuxtLink :to="`${article._path}`">
               {{ article.title }}({{ article._path }})
             </NuxtLink>
           </h3>
@@ -43,16 +43,18 @@ const query = queryContent();
       </ContentList>
     </ul>
 
+    <!-- <ContentDoc path="/notes/web/css/selectors" /> -->
+
     <!-- <ContentDoc path="/web/css/selectors" /> -->
 
     <h3>$route.params.slug</h3>
     <p>{{ $route.params.slug }}</p>
     <h2>$route.path:{{ $route.path }}</h2>
 
-    <ContentDoc :path="`../${$route.path}`" v-slot="{ doc }">
+    <ContentDoc v-slot="{ doc }">
       <template>
         <article>
-          <h1>{{ doc.title }}</h1>
+          <!-- <h1>{{ doc.title }}</h1> -->
           <ContentRenderer :value="doc" />
         </article>
       </template>
@@ -62,6 +64,6 @@ const query = queryContent();
 </template>
 <style lang="scss">
 .content {
-  color: aqua;
+  // color: aqua;
 }
 </style>

@@ -79,13 +79,13 @@ export default defineNuxtConfig({
     //   baseURL: '/api/_content',
     // },
     // documentDriven: true,
-    sources: {
-      content: {
-        driver: 'fs',
-        prefix: '/notes', // All contents inside this source will be prefixed with `/notes`
-        base: resolve(__dirname, 'content'),
-      },
-    },
+    // sources: {
+    //   content: {
+    //     driver: 'fs',
+    //     prefix: '/notes', // All contents inside this source will be prefixed with `/notes`
+    //     base: resolve(__dirname, 'content/notes'),
+    //   },
+    // },
     // contentHead: true,
     highlight: {
       // Theme used in all color schemes.
@@ -132,6 +132,7 @@ export default defineNuxtConfig({
     // '/blog/**': { isr: true },
     // // Admin dashboard renders only on client-side
     '/admin/**': { ssr: false },
+    '/profile': { ssr: false },
     // // Add cors headers on API routes
     // '/api/**': { cors: true },
     // // Redirects legacy urls
